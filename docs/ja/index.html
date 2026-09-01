@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="ja" data-theme="light">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>4XS CamWallet — AXISカメラのためのx402</title>
+<link rel="alternate" hreflang="en" href="../"><link rel="alternate" hreflang="cs" href="../cs/"><link rel="alternate" hreflang="x-default" href="../">
+<style>
+:root{
+  --ink:#0d1b26;--muted:#54687a;--line:#d7e2ec;--panel:#ffffff;--panel2:#f2f7fb;
+  --blue:#0a6fb0;--mint:#0f8f6a;--gold:#a56a00;--red:#c0384f;--bg:#f6f9fc;
+  --step-bg:#f2f7fb;--step-line:#d7e2ec;--code-bg:#0d1b26;--code-ink:#cfe8ff;--code-line:#0d1b26;
+  --proof-bg:#e8f7f1;--proof-ink:#0b3f30;--pill-line:#c2d3e0;--pill-ink:#33506a;
+  --tag-bg:#e6f1fa;--tag-line:#b3d3ea;--tag-ink:#0a5484;--lead:#33506a;
+  --hero-glow1:rgba(10,111,176,.10);--hero-glow2:rgba(15,143,106,.10);
+  --thesis:linear-gradient(140deg,#eef5fb,#f7fbfe);--cta:linear-gradient(100deg,#e8f3fa,#e9f7f1);
+}
+:root[data-theme="dark"]{
+  --ink:#eef6ff;--muted:#9eb2c7;--line:#24415a;--panel:rgba(12,29,44,.85);--panel2:#10283a;
+  --blue:#62c5ff;--mint:#6bf0bd;--gold:#ffc968;--red:#ff8294;--bg:#06121c;
+  --step-bg:#0a1723;--step-line:#203d53;--code-bg:#06131e;--code-ink:#bfe5ff;--code-line:#1d3a50;
+  --proof-bg:#08251f;--proof-ink:#d2fff0;--pill-line:#34536b;--pill-ink:#c6d9e8;
+  --tag-bg:#0b2638;--tag-line:#2e698c;--tag-ink:#bde7ff;--lead:#d6e4f2;
+  --hero-glow1:#143c5a;--hero-glow2:#123e4b;
+  --thesis:linear-gradient(140deg,#112b40,#0b1c2a);--cta:linear-gradient(100deg,#0e3140,#123126);
+}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at 13% 5%,var(--hero-glow1) 0,transparent 29%),radial-gradient(circle at 90% 15%,var(--hero-glow2) 0,transparent 25%),var(--bg);color:var(--ink);font:15px/1.72 Inter,"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans JP",ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.page{width:min(1180px,calc(100% - 40px));margin:0 auto;padding:42px 0 56px}
+.themebtn{position:fixed;top:14px;right:14px;z-index:9;border:1px solid var(--pill-line);background:var(--panel2);color:var(--ink);border-radius:999px;padding:7px 13px;font:600 12px/1 inherit;cursor:pointer}
+.eyebrow{color:var(--mint);font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.hero{display:grid;grid-template-columns:1.4fr .8fr;gap:34px;align-items:end;border-bottom:1px solid var(--line);padding-bottom:30px}
+.brand{font-size:13px;color:var(--muted);font-weight:700;letter-spacing:.08em}
+.hero h1{font-size:clamp(42px,7vw,84px);letter-spacing:-.065em;line-height:.9;margin:16px 0 20px}
+.hero h1 span{color:var(--blue)}
+.lead{font-size:20px;max-width:720px;color:var(--lead)}
+.tag{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--tag-line);background:var(--tag-bg);border-radius:999px;color:var(--tag-ink);padding:7px 11px;font-size:12px;font-weight:700}
+.dot{height:8px;width:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 12px var(--mint)}
+.thesis{border:1px solid var(--line);background:var(--thesis);border-radius:16px;padding:22px}
+.thesis strong{font-size:22px;line-height:1.15;display:block;margin:10px 0}
+.muted{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;margin-top:18px}
+.card{border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:19px}
+.card h2,.card h3{margin:0 0 8px;letter-spacing:-.025em}
+.card h2{font-size:22px}.card h3{font-size:16px}
+.wide{grid-column:span 7}.side{grid-column:span 5}.third{grid-column:span 4}.two{grid-column:span 6}.full{grid-column:1/-1}
+.kicker{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:8px}
+.statement{font-size:25px;line-height:1.15;letter-spacing:-.035em;margin:0}
+.accent{color:var(--mint)}
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:12px}
+.step{min-height:122px;border-radius:12px;padding:14px;background:var(--step-bg);border:1px solid var(--step-line);position:relative}
+.step:not(:last-child):after{content:"→";position:absolute;right:-13px;top:42%;z-index:2;color:var(--gold);font-size:22px}
+.n{display:block;color:var(--gold);font:800 11px/1 ui-monospace,SFMono-Regular,Menlo,monospace;margin-bottom:10px}
+.step b{display:block;font-size:14px}
+.step small{display:block;color:var(--muted);margin-top:5px;font-size:12px}
+.code{margin:13px 0 0;padding:14px;border-radius:10px;background:var(--code-bg);border:1px solid var(--code-line);color:var(--code-ink);font:12px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;overflow-x:auto}
+.proof{border-left:3px solid var(--mint);padding:14px 16px;background:var(--proof-bg);border-radius:0 10px 10px 0;color:var(--proof-ink)}
+.pillrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.pill{border:1px solid var(--pill-line);color:var(--pill-ink);padding:5px 9px;border-radius:999px;font-size:12px}
+.table{width:100%;border-collapse:collapse;margin-top:8px;font-size:13px}
+.table th,.table td{text-align:left;vertical-align:top;padding:10px 8px;border-bottom:1px solid var(--line)}
+.table th{color:var(--blue);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.list{margin:0;padding:0;list-style:none}
+.list li{padding:8px 0;border-bottom:1px solid var(--line)}
+.list li:last-child{border:0}
+.list li:before{content:"✓";color:var(--mint);font-weight:900;margin-right:9px}
+.danger li:before{content:"×";color:var(--red)}
+.open li:before{content:"!";color:var(--gold)}
+.road{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.phase{border-left:2px solid var(--blue);padding:5px 0 5px 12px}
+.phase b{display:block;color:var(--gold);font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+.phase p{margin:6px 0 0;color:var(--muted);font-size:13px}
+.proto{display:flex;gap:16px;align-items:flex-start;border:2px solid var(--gold);border-radius:14px;
+  background:var(--panel);padding:16px 18px;margin-bottom:22px}
+.proto .bang{flex:0 0 auto;font:900 12px/1.15 inherit;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--gold);border:2px solid var(--gold);border-radius:8px;padding:9px 11px;text-align:center;max-width:210px;letter-spacing:.04em}
+.proto p{margin:0;font-size:14px;color:var(--lead)}
+.proto b{color:var(--ink)}
+.shots{column-count:2;column-gap:16px;margin-top:4px}
+.shot{border:1px solid var(--line);border-radius:12px;background:var(--panel2);padding:10px;
+  margin:0 0 16px;break-inside:avoid;-webkit-column-break-inside:avoid}
+.shot img{display:block;width:100%;height:auto;border-radius:7px;border:1px solid var(--line);background:#fff}
+.shot figcaption{margin-top:9px;font-size:12.5px;color:var(--muted)}
+.shot figcaption b{color:var(--ink);font-weight:700}
+@media(max-width:820px){.proto{flex-direction:column;gap:10px}.shots{column-count:1}}
+.langnav{position:fixed;top:14px;right:86px;z-index:9;display:flex;gap:2px;align-items:center;
+  border:1px solid var(--pill-line);background:var(--panel2);border-radius:999px;padding:6px 6px;font:600 12px/1 inherit}
+.langnav a,.langnav span{padding:2px 7px;border-radius:999px;text-decoration:none;color:var(--pill-ink)}
+.langnav span{background:var(--blue);color:#fff}
+.langnav a:hover{color:var(--blue)}
+@media(max-width:560px){.langnav{position:static;margin:0 0 12px;display:inline-flex}}
+@media(max-width:820px){.road{grid-template-columns:1fr !important}}
+@media(max-width:560px){.grid,.hero{gap:12px}}
+.footer{border-top:1px solid var(--line);margin-top:20px;padding-top:16px;color:var(--muted);font-size:12px}
+.footer b{color:var(--ink)}
+@media(max-width:820px){.hero{grid-template-columns:1fr}.wide,.side,.third,.two{grid-column:1/-1}.flow{grid-template-columns:1fr}.step:not(:last-child):after{content:"↓";right:50%;top:auto;bottom:-17px}.road{grid-template-columns:1fr}.page{width:min(100% - 24px,1180px);padding-top:24px}}
+</style>
+</head>
+<body>
+<nav class="langnav"><a href="../">EN</a><span>日本語</span><a href="../cs/">Čeština</a></nav>
+<button class="themebtn" id="themebtn" type="button">ダーク</button>
+<main class="page">
+  <div class="proto">
+    <div class="bang">概念実証<br>実働プロトタイプ</div>
+    <p><b>ここに書かれていることはすべて実際に動作する。AXIS Q1656 実機1台、Base Sepolia テストネット上で。</b>
+    主張はそれだけであり、それ以上ではない。これはラボ用ビルドである： <b>未署名</b>, <b>テストネット限定</b>,
+    <b>カメラ1台</b>。本番導入なし、パイロット顧客なし、メインネットの資金なし。目的は「AXIS カメラは x402 の売り手になれるか」に答えることであって、購入されること、フリートに導入されること、インターネットに公開されることではない。上の内容から結論を出す前に、ページ末尾の状況の注記を読んでほしい。</p>
+  </div>
+
+  <header class="hero">
+    <div>
+      <div class="brand">4XS.DEV / 実働プロトタイプ — ワンページャー</div>
+      <div class="eyebrow" style="margin-top:28px">x402 × AXIS Camera Application Platform</div>
+      <h1>売るのは <span>答え、</span><br>映像ではない。</h1>
+      <p class="lead">CamWallet は、登録済みの AXIS カメラを x402 の売り手に変える ACAP である。エージェントはリクエストごとに支払い、範囲を絞った、プライバシーを最小化した、監査可能な答えを1つ受け取る。</p>
+      <span class="tag"><i class="dot"></i> 実機で動作中：CamWallet 0.8.2、AXIS Q1656、Base Sepolia</span>
+    </div>
+    <aside class="thesis">
+      <div class="kicker">命題</div>
+      <strong>AXIS カメラに価格表と、ポリシーエンジンと、安全な経済的インターフェースを与える。</strong>
+      <p class="muted">商品は「署名された運用上の証拠」である。x402 はプログラムから使える決済レールにすぎない — ありふれたレジ台であって、顧客への価値提案ではない。</p>
+    </aside>
+  </header>
+
+  <section class="grid">
+    <article class="card wide">
+      <div class="kicker">有料の単位</div>
+      <p class="statement">A <span class="accent">価格の付いたリソース</span> は、設定された1つの問いに答える。来歴と、ポリシーと、監査証跡を伴って。</p>
+      <div class="proof"><b>実際の例：</b> 見知らぬウォレットが、0.002 USDC でカメラから 44 KB の JPEG を購入した。あるいはフィールド抽出を使えば、返るのは <code>{"value":0,"unit":"buses"}</code> だけ — 買い手は、何人の人が通り過ぎたかを知ることはない。</div>
+      <pre class="code">GET /local/camwallet/api/snapshot
+→ 402 Payment Required   (accepts: USDC, base-sepolia, exact)
+→ retry with PAYMENT-SIGNATURE   (EIP-3009 authorization, signed by the buyer)
+→ 200 image/jpeg + PAYMENT-RESPONSE   tx 0x54362605…14e7b03f</pre>
+    </article>
+    <article class="card side">
+      <div class="kicker">何が違うのか</div>
+      <h2>カメラからエージェントへの能力提供</h2>
+      <p class="muted">汎用の映像解析ではない。カメラ映像の公開でもない。「AI エージェントがカメラを操作する」でもない。汎用の x402 クライアントは、このカメラのために特別な処理を書く必要がない — 必要になったなら、それはバグである。</p>
+      <div class="pillrow"><span class="pill">ACAP edge runtime, FW12</span><span class="pill">x402 v2 · exact · EIP-3009</span><span class="pill">USDC on Base</span><span class="pill">VAPIX / AOA / CamSwitcher</span><span class="pill">証拠を第一に置く安全設計</span></div>
+    </article>
+
+    <article class="card full">
+      <div class="kicker">x402 の流れ</div>
+      <div class="flow">
+        <div class="step"><span class="n">01 / リクエスト</span><b>エージェントが尋ねる</b><small>所有者がカタログに公開したパスを叩く。既定は拒否、完全一致、ワイルドカードなし。</small></div>
+        <div class="step"><span class="n">02 / チャレンジ</span><b>ACAP が 402 を返す</b><small>標準のボディ：ルールごとの価格、資産、チェーン、payTo。</small></div>
+        <div class="step"><span class="n">03 / 承認</span><b>エージェントが支払う</b><small>署名済みの <code>PAYMENT-SIGNATURE</code> ヘッダーを付けて再送する（v2。 <code>X-PAYMENT</code> も引き続き受理）。カメラは鍵を持たない。</small></div>
+        <div class="step"><span class="n">04 / 検証</span><b>ファシリテーターが決済する</b><small>/verify のあとに /settle。リース、クールダウン、レート制限は capture の前に確認される。</small></div>
+        <div class="step"><span class="n">05 / 引き渡し</span><b>カメラが応答する</b><small>authorize → produce → capture。何も渡せなければ、何も課金されない。</small></div>
+      </div>
+    </article>
+
+    <article class="card third">
+      <div class="kicker">現在動作している機能</div>
+      <ul class="list"><li>スナップショット／マスク済み静止画、1回ごとの課金</li><li>AOA のクラス別カウント、1ルールにつき1つの数値</li><li>CamSwitcher のビュー切替と CamStreamer の配信制御</li><li>PTZ プリセットの排他リース（自動復帰つき）</li><li>ライブ探索：Q1656 上で販売可能なルールを12件検出</li><li>無料の <code>/api/revenue</code> 台帳と CSV エクスポート（公開。支払者アドレスが記載される）</li></ul>
+    </article>
+    <article class="card third">
+      <div class="kicker">堅いガードレール（検証済み）</div>
+      <ul class="list"><li>カメラに鍵を置かない — 受取アドレスは管理者が貼り付ける</li><li>上書き不可の拒否リスト：危険なパス 10/10 を拒否</li><li>買い手のパス ≠ カメラ側のターゲット。カタログはターゲットを公開しない</li><li><code>extract</code> は1つのフィールドだけを売る。ペイロード全体ではない</li><li>フェイルクローズ：ファシリテーターに到達できなければ 402。何も渡さず、何も課金しない</li><li>管理インターフェースはループバック限定 — 設定、受取先、価格表がネットワークに出ることはない</li><li>ファシリテーターと RPC への接続は TLS を検証する。証明書の例外は端末内のホップだけに限定されている</li><li>再送された支払いが二重に課金されることはなく、新しい答えを生むこともない</li><li>キルスイッチ：解除＋リース終了＋復帰をワンクリックで</li></ul>
+    </article>
+    <article class="card third">
+      <div class="kicker">対象外／未解決</div>
+      <ul class="list danger"><li>アクセス制御ではない — 認証情報を持つ利用者は常に VAPIX と RTSP に直接到達できる</li><li>インターネット公開はまだ：Axis Device ID の証明書は公的に信頼されていない</li><li>メインネットなし — Base Sepolia のみ</li><li>クォータパックなし（ <code>kind</code> フィールドが将来の接ぎ目）</li><li>法的・法科学的な証拠能力の主張はしない</li></ul>
+      <ul class="list open" style="margin-top:6px"><li>決済失敗：直近18回の購入で0件。ただし <em>再現しない</em> は「修正済み」ではない</li></ul>
+    </article>
+
+    <article class="card two">
+      <div class="kicker">誰が、なぜ払うのか</div>
+      <table class="table"><thead><tr><th>買い手</th><th>価値</th><th>商流</th></tr></thead><tbody>
+        <tr><td>エージェント開発者</td><td>物理世界について信頼できる答えが1つ得られる</td><td>x402 の従量課金</td></tr>
+        <tr><td>倉庫のインテグレーター</td><td>人手の確認を証拠に置き換える</td><td>業種別パック／月額</td></tr>
+        <tr><td>リセラー</td><td>再現可能な導入範囲、サポート負荷の低減</td><td>サイト運用料</td></tr>
+        <tr><td>保険金請求／コンプライアンス業務</td><td>来歴と監査可能性</td><td>上位の証明／保管</td></tr>
+      </tbody></table>
+      <p class="muted">価格はルールごと、USDC の最小単位で指定する — 1000 = 0.001 USDC。目安：開発者向けは1回あたり €0.02–€0.20、業種別の運用パックは1サイトあたり月額 €99–€499。</p>
+    </article>
+    <article class="card two">
+      <div class="kicker">アーキテクチャ決定（ADR-002）</div>
+      <h2>エッジ優先、鍵を持たない、可能な限り標準どおり。</h2>
+      <p class="muted">402 の扉は ACAP 自身であり、カメラ自身の Web サーバー上で <code>reverseProxy</code> を通じて匿名で提供される — 追加のポートも、追加の TLS も要らない。/verify と /settle は第三者のファシリテーターが行い、ACAP は決済スタックを実装しない。カメラ固有の意味づけ（リース、能力の記述）はリソース層にあり、決済の内側には決して置かない。</p>
+      <div class="pillrow"><span class="pill">Anonymous reverseProxy</span><span class="pill">1つの受取先、多数のカメラ</span><span class="pill">カメラごとの JSONL 台帳</span><span class="pill">先行ダイジェスト認証 = 12倍</span></div>
+    </article>
+
+    <article class="card full">
+      <div class="kicker">実際の到達点</div>
+      <div class="road" style="grid-template-columns:repeat(3,1fr)">
+        <div class="phase"><b>P0–P2 / レールの実証</b><p>匿名プロキシからアプリへの到達、管理者が入力する受取先、チェーンへの到達性、6 ms の時刻差。Base Sepolia 上で初の実決済 — カメラが何かを売り、代金を受け取った。</p></div>
+        <div class="phase"><b>P3–P4 / 製品</b><p>所有者の価格表、ライブ探索、プライバシー制御としてのフィールド抽出、副作用の明示。自動復帰つき PTZ 排他リース、409 による排他制御とクールダウンを、資金のある2つのウォレットで検証。</p></div>
+        <div class="phase"><b>P5 / 運用可能</b><p>カメラごとの売上台帳を兼ねる監査ログ、キルスイッチ、CSV エクスポート、OPERATOR.md。到達不能なファシリテーターに対してフェイルクローズを実地に確認。</p></div>
+      </div>
+    </article>
+
+    <article class="card full">
+      <div class="kicker">所有者が実際に目にする画面</div>
+      <p class="muted" style="margin:0 0 14px">製品の全体は、カメラ上の設定ページ1枚である。カメラ自身の Web サーバーが、管理者ログインの内側で提供する。スクリーンショットはラボの Q1656 上の CamWallet 0.8.2（画面は英語）。受取アドレスと USDC のコントラクトはマスクしてある。</p>
+      <div class="shots">
+        <figure class="shot">
+          <a href="../img/01-payee.png" target="_blank" rel="noopener"><img src="../img/01-payee.png" alt="CamWallet 設定ページ — Payee" loading="lazy"></a>
+          <figcaption><b>受取先。</b> 所有者は、すでに自分が管理しているアドレスを貼り付ける。カメラが秘密鍵を持つことはない — x402 の受け取りにはアドレスだけあればよく、カメラを盗まれても資金は漏れない。</figcaption>
+        </figure>
+        <figure class="shot">
+          <a href="../img/02-chain-check.png" target="_blank" rel="noopener"><img src="../img/02-chain-check.png" alt="CamWallet 設定ページ — Chain check, and the credentials the app uses" loading="lazy"></a>
+          <figcaption><b>チェーン確認と、アプリが使う認証情報。</b> 残高、RPC の往復時間、時刻のずれをボタン1つで確認できる。これは同時に、カメラが外向きの HTTPS を使えること、そして支払いの有効期間が信頼できる時刻に基づいていることの証明でもある。その下は、買い手のリクエストをアプリがカメラに対して実行するときに使うアカウント — 買い手が認証情報を受け取ることはない。</figcaption>
+        </figure>
+        <figure class="shot">
+          <a href="../img/03-discover-price-list.png" target="_blank" rel="noopener"><img src="../img/03-discover-price-list.png" alt="CamWallet 設定ページ — Discovery and the price list" loading="lazy"></a>
+          <figcaption><b>探索と価格表。</b> ルールは資料からではなく、そのカメラで実際に動いているものから組み立てられる。既定は拒否：表が空なら何も売られない。買い手が呼ぶのは <em>path</em>であり、 <em>target</em> が公開されることはない。</figcaption>
+        </figure>
+        <figure class="shot">
+          <a href="../img/04-rules.png" target="_blank" rel="noopener"><img src="../img/04-rules.png" alt="CamWallet 設定ページ — A rule that sells one field" loading="lazy"></a>
+          <figcaption><b>1つのフィールドだけを売るルール。</b> AOA は「バスが何台か」に答えるが、同時に何人が通り過ぎたかも明かしてしまう。 <code>data.totalCar</code> は答えを、買われたものだけに絞る — フィールド抽出は体裁の問題ではなく、プライバシーの制御である。</figcaption>
+        </figure>
+        <figure class="shot">
+          <a href="../img/05-arm.png" target="_blank" rel="noopener"><img src="../img/05-arm.png" alt="CamWallet 設定ページ — Arm, and the kill switch" loading="lazy"></a>
+          <figcaption><b>アーム（販売開始）と、キルスイッチ。</b> アームには有効な受取先と、信頼できる時刻が必要で、どちらもリクエストごとに再確認される。 <em>Stop everything</em> は販売を止め、進行中のリースを終了し、カメラを元の状態に戻す。</figcaption>
+        </figure>
+        <figure class="shot">
+          <a href="../img/06-activity-revenue.png" target="_blank" rel="noopener"><img src="../img/06-activity-revenue.png" alt="CamWallet 設定ページ — Activity and revenue" loading="lazy"></a>
+          <figcaption><b>稼働と売上。</b> 金銭とカメラへのアクセスに関するすべての判断。台数をまたいで受取先が1つの場合、EIP-3009 の送金にはメモが付かない。したがってこのログが、カメラごとの売上を示す唯一の記録である。</figcaption>
+        </figure>
+      </div>
+    </article>
+
+    <article class="card full" style="background:var(--cta)">
+      <div class="kicker">次の一手</div>
+      <p class="statement">実在の買い手に耐える <span class="accent">堅さ</span>を作り、それからメインネットへ。</p>
+      <p class="lead" style="font-size:17px;margin:8px 0 0">全応答を記録する新しい計測で決済不具合を潰す。リバースプロキシまたはトンネルを使い、公的に信頼される証明書を1台のカメラの前に置く — ログイン画面や VAPIX、RTSP まで一緒にポート開放してしまうことなく。そのうえで、Base メインネットで有償のパイロットを1件。</p>
+    </article>
+  </section>
+
+  <footer class="footer"><b>製品ではなくプロトタイプ：</b> 未署名のラボビルド、Base <b>Sepolia</b> テストネット、カメラ1台、パイロット顧客なし。本ページはソフトウェアの販売の申し出でも、製品として利用可能であるという主張でもない。<br><br><b>前提となる状況：</b> AXIS Q1656（FW12）上で動作する CamWallet 0.8.2、Base Sepolia テストネット、第三者のファシリテーター。原則：可能な限り x402 標準に沿う — USDC のみ、単一チェーン、v2 の <code>exact</code> スキーム、標準の v2 <code>PAYMENT-SIGNATURE</code> / <code>PAYMENT-RESPONSE</code> / <code>PAYMENT-REQUIRED</code> （v1 の表記も引き続き読み取り・送出する）。本番導入の前に、ライブラリのバージョン、機種とファームウェアの対応、受取先の資産管理、EU のプライバシー義務を各自で確認すること。</footer>
+</main>
+<script>
+(function(){
+  var r=document.documentElement,b=document.getElementById('themebtn');
+  function set(t){r.setAttribute('data-theme',t);b.textContent=t==='dark'?'ライト':'ダーク';}
+  set('light');
+  b.addEventListener('click',function(){set(r.getAttribute('data-theme')==='dark'?'light':'dark');});
+})();
+</script>
+</body>
+</html>

@@ -13,7 +13,7 @@ USDC, and gets back one narrow, privacy-minimized, audited answer. No account. N
 >
 > The source is not published yet. See [Status](#status) for what is verified on hardware and what isn't.
 
-**[→ Read the one-pager](https://kotyzap.github.io/Sell-answers-not-video---x402-for-Axis/)**
+**[→ Read the one-pager](https://kotyzap.github.io/Sell-answers-not-video---x402-for-Axis/)** · [日本語](https://kotyzap.github.io/Sell-answers-not-video---x402-for-Axis/ja/) · [Čeština](https://kotyzap.github.io/Sell-answers-not-video---x402-for-Axis/cs/)
 
 ---
 
