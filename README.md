@@ -126,12 +126,6 @@ admin surface bound to loopback.
 **Not done:** mainnet · a signed package · a publicly trusted certificate · quota packs · a paying pilot.
 One intermittent settlement defect is open and under instrumentation.
 
-## Roadmap
-
-1. Close the settlement defect.
-2. Put a publicly trusted certificate in front of one camera — without port-forwarding the login page,
-   VAPIX and RTSP along with it.
-3. One paying pilot, on Base mainnet.
 
 ## About
 
