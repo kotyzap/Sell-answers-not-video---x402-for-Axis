@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="img/banner.png" alt="CamWallet - sell x402 answers, not AXIS video" width="100%">
+  <img src="docs/img/banner.png" alt="CamWallet - sell x402 answers, not AXIS video" width="100%">
 </p>
 
 <p align="center">
