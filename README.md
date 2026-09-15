@@ -1,4 +1,16 @@
-# CamWallet — sell answers, not video
+<p align="center">
+  <img src="img/banner.png" alt="CamWallet - sell x402 answers, not AXIS video" width="100%">
+</p>
+
+<p align="center">
+  <a href="https://kotyzap.github.io/Sell-answers-not-video---x402-for-Axis/"><img alt="One-pager" src="https://img.shields.io/badge/one--pager-live-2fbf8f?style=flat-square"></a>
+  <img alt="Status" src="https://img.shields.io/badge/status-proof%20of%20concept-e8b463?style=flat-square">
+  <img alt="Protocol" src="https://img.shields.io/badge/x402-v2%20exact%20%C2%B7%20EIP--3009-141d27?style=flat-square">
+  <a href="https://sepolia.basescan.org/tx/0x54362605e831168521965331a87daabbc8b45fac9bc7c2a06ff873ff14e7b03f"><img alt="Settlement" src="https://img.shields.io/badge/USDC-Base%20Sepolia-141d27?style=flat-square"></a>
+  <img alt="Device" src="https://img.shields.io/badge/device-AXIS%20Q1656%20%C2%B7%20AXIS%20OS%2012-141d27?style=flat-square">
+</p>
+
+# CamWallet — sell x402 answers, not AXIS video
 
 **An AXIS camera that charges for what it knows.** CamWallet is an ACAP that turns an enrolled AXIS
 camera into an [x402](https://x402.org) seller: an agent asks a question, pays a fraction of a cent in
@@ -28,7 +40,8 @@ GET /local/camwallet/api/snapshot
 ```
 
 A stranger's wallet bought a 44 KB JPEG from a camera for 0.002 USDC. Nobody was introduced, no contract
-was signed, and the camera holds no private key.
+was signed, and the camera holds no private key. The settlement is on-chain and you can
+check it yourself: [`0x54362605…14e7b03f`](https://sepolia.basescan.org/tx/0x54362605e831168521965331a87daabbc8b45fac9bc7c2a06ff873ff14e7b03f) on Base Sepolia.
 
 ## Why answers, not video
 
@@ -60,8 +73,8 @@ Everything, from one settings page on the camera:
 ## What the owner sees
 
 <p align="center">
-  <img src="docs/img/03-discover-price-list.png" width="49%" alt="Discovery and the price list">
-  <img src="docs/img/04-rules.png" width="49%" alt="A rule that sells one field">
+  <img src="img/03-discover-price-list.png" width="49%" alt="Discovery and the price list">
+  <img src="img/04-rules.png" width="49%" alt="A rule that sells one field">
 </p>
 
 *Left:* discovery probes the camera live — which ACAPs run, which AOA scenarios exist, which PTZ presets
@@ -69,8 +82,8 @@ are configured — and offers rules built from what is actually there. *Right:* 
 `data.totalCar` out of an AOA payload, priced at 0.001 USDC.
 
 <p align="center">
-  <img src="docs/img/01-payee.png" width="49%" alt="Payee configuration">
-  <img src="docs/img/06-activity-revenue.png" width="49%" alt="Activity and revenue">
+  <img src="img/01-payee.png" width="49%" alt="Payee configuration">
+  <img src="img/06-activity-revenue.png" width="49%" alt="Activity and revenue">
 </p>
 
 *Left:* the payee is an address the owner pastes in — **the camera never holds a private key**, because
@@ -126,6 +139,12 @@ admin surface bound to loopback.
 **Not done:** mainnet · a signed package · a publicly trusted certificate · quota packs · a paying pilot.
 One intermittent settlement defect is open and under instrumentation.
 
+## Roadmap
+
+1. Close the settlement defect.
+2. Put a publicly trusted certificate in front of one camera — without port-forwarding the login page,
+   VAPIX and RTSP along with it.
+3. One paying pilot, on Base mainnet.
 
 ## About
 
