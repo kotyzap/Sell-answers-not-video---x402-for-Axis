@@ -139,16 +139,10 @@ admin surface bound to loopback.
 **Not done:** mainnet · a signed package · a publicly trusted certificate · quota packs · a paying pilot.
 One intermittent settlement defect is open and under instrumentation.
 
-## Roadmap
-
-1. Close the settlement defect.
-2. Put a publicly trusted certificate in front of one camera — without port-forwarding the login page,
-   VAPIX and RTSP along with it.
-3. One paying pilot, on Base mainnet.
 
 ## About
 
-Built by **[4XS.dev](https://www.4xs.dev)**. Questions, or a use case you think this fits — open an issue.
+Built by Pavel Kotyza **[4XS.dev](https://www.4xs.dev)**. Questions, or a use case you think this fits — open an issue.
 
 *AXIS, ARTPEC and VAPIX are trademarks of Axis Communications AB. This project is not affiliated with or
 endorsed by Axis Communications. Nothing here is legal, tax or financial advice.*
