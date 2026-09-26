@@ -73,8 +73,8 @@ Everything, from one settings page on the camera:
 ## What the owner sees
 
 <p align="center">
-  <img src="img/03-discover-price-list.png" width="49%" alt="Discovery and the price list">
-  <img src="img/04-rules.png" width="49%" alt="A rule that sells one field">
+  <img src="docs/img/03-discover-price-list.png" width="49%" alt="Discovery and the price list">
+  <img src="docs/img/04-rules.png" width="49%" alt="A rule that sells one field">
 </p>
 
 *Left:* discovery probes the camera live — which ACAPs run, which AOA scenarios exist, which PTZ presets
@@ -82,8 +82,8 @@ are configured — and offers rules built from what is actually there. *Right:* 
 `data.totalCar` out of an AOA payload, priced at 0.001 USDC.
 
 <p align="center">
-  <img src="img/01-payee.png" width="49%" alt="Payee configuration">
-  <img src="img/06-activity-revenue.png" width="49%" alt="Activity and revenue">
+  <img src="docs/img/01-payee.png" width="49%" alt="Payee configuration">
+  <img src="docs/img/06-activity-revenue.png" width="49%" alt="Activity and revenue">
 </p>
 
 *Left:* the payee is an address the owner pastes in — **the camera never holds a private key**, because
